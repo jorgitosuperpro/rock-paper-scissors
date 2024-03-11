@@ -4,75 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="javascript.js" defer></script>
 </head>
-<script>
-
-function playGame() {
-    console.log("¡Bienvenido al juego Roca, Papel, Tijeras!\nEl juego consiste en 5 turnos.\nElige entre estas opciones: Roca, Papel o Tijeras.\n¡Mucha suerte!")
-    let PC = 0;
-    let YO = 0;
-    for (let i = 1; i <= 5; i++) {
-        function getComputerChoice() {
-            const choices = ["Roca", "Papel", "Tijeras"]
-            const randomElement = choices[Math.floor(Math.random() * choices.length)]
-            console.log("El ordenador elige: " + randomElement)
-            return randomElement
-        }
-        
-        function capitalize(playerSelection) {
-            const playerSelectionCapitalized = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase()
-            return playerSelectionCapitalized
-        }
-
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection === computerSelection){
-                console.log("Empate, " + playerSelection  + " contra " + computerSelection)
-                return console.log("Marcador: vas " + YO + " a " + PC)
-            } else if (playerSelection == "Roca" && computerSelection == "Papel") {
-                console.log("Pierdes, roca  pierde contra papel")
-                PC++;
-                return console.log("Marcador: vas " + YO + " a " + PC)
-            } else if (playerSelection == "Roca" && computerSelection == "Tijeras") {
-                console.log("Ganas, roca gana contra tijeras")
-                YO++ ;
-                return console.log("Marcador: vas " + YO + " a " + PC) 
-            } else if (playerSelection == "Papel" && computerSelection == "Roca") {
-                console.log("Ganas, papel gana contra roca")
-                YO++;
-                return console.log("Marcador: vas " + YO + " a " + PC)
-            } else if (playerSelection == "Papel" && computerSelection == "Tijeras") {
-                console.log("Pierdes, papel pierde contra tijeras")
-                PC++;
-                return console.log("Marcador: vas " + YO + " a " + PC)
-            } else if (playerSelection == "Tijeras" && computerSelection == "Papel") {
-                console.log("Ganas, tijeras gana contra papel")
-                YO++;
-                return console.log("Marcador: vas " + YO + " a " + PC)
-            } else if (playerSelection == "Tijeras" && computerSelection == "Roca") {
-                console.log("Pierdes, tijeras pierde contra roca")
-                PC++;
-                return console.log("Marcador: vas " + YO + " a " + PC)
-            }         
-        }
-
-        const playerSelection = prompt("")
-        playRound(capitalize(playerSelection), getComputerChoice())
-    }
-
-    if (YO > PC) {
-            console.log("¡Felicidades, has ganado! " + YO + "/" + PC)
-        } else if (YO === PC) {
-            console.log("Has acabado en empate. " + YO + "/" + PC)
-        } else {
-            console.log("Has perdido. Prueba otra vez. " + YO + "/" + PC)
-        }
-}
-
-playGame()
-
-
-
-</script>
 <body>
+    <div id="container"></div>
+    <button id="Roca">ROCA</button>
+    <button id="Papel">PAPEL</button>
+    <button id="Tijeras">TIJERAS</button>
 </body>
 </html>
